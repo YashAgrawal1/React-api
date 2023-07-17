@@ -29,6 +29,7 @@ export const Login = ({ onLogin }) => {
           </Typography>
           <form onSubmit={handleLogin}>
             <TextField
+              id="email"
               label="email"
               variant="outlined"
               fullWidth
@@ -37,6 +38,7 @@ export const Login = ({ onLogin }) => {
               margin="normal"
             />
             <TextField
+              id="password"
               label="Password"
               variant="outlined"
               type="password"

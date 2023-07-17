@@ -52,11 +52,13 @@ export const Search = () => {
         <Box mt={5} p={3} bgcolor="white" boxShadow={3}>
           <div>
             <TextField
+              id="searchInput"
               label="Search Characters"
               variant="outlined"
               onChange={handleSearchChange}
             />
             <button
+              id="searchBtn"
               type="text"
               onClick={() => {
                 if (searchQuery.length) handleSearch();
