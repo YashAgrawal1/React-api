@@ -9,6 +9,7 @@ import {
   Typography,
   Container,
   Box,
+  Button,
 } from "@mui/material";
 
 export const Search = () => {
@@ -34,20 +35,18 @@ export const Search = () => {
     console.log("yash", characters);
   }
 
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
   const filteredCharacters = characters.filter((character) =>
     character.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
+  
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
   return (
     <>
       <Typography variant="h4" align="center">
-        Characters
+       Ricky and Morty Characters
       </Typography>
-
       <Container style={{ maxWidth: "400px" }}>
         <Box mt={5} p={3} bgcolor="white" boxShadow={3}>
           <div>
@@ -57,20 +56,20 @@ export const Search = () => {
               variant="outlined"
               onChange={handleSearchChange}
             />
-            <button
+            <Button
               id="searchBtn"
               type="text"
+              variant= 'contained'
               onClick={() => {
                 if (searchQuery.length) handleSearch();
               }}
             >
               Search
-            </button>
+            </Button>
           </div>
         </Box>
       </Container>
-
-      {filteredCharacters.length ? (
+{filteredCharacters.length && searchQuery.length? (
         <Table>
           <TableHead>
             <TableRow>
@@ -78,6 +77,7 @@ export const Search = () => {
               <TableCell>Created</TableCell>
               <TableCell>Status</TableCell>
               <TableCell>Gender</TableCell>
+              <TableCell>Species</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -87,6 +87,7 @@ export const Search = () => {
                 <TableCell>{character.created}</TableCell>
                 <TableCell>{character.status}</TableCell>
                 <TableCell>{character.gender}</TableCell>
+                <TableCell>{character.species}</TableCell>
               </TableRow>
             ))}
           </TableBody>
